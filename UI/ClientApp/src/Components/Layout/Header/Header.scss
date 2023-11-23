@@ -1,0 +1,14 @@
+.MuiToolbar-regular{
+  background-color: #fff;
+  color: #0E4C89;
+  .MuiButton-sizeMedium:hover{
+    font-weight: 600;
+  }
+  .MuiButton-sizeMedium:last-child{
+    background-color: #0E4C89;
+    color: #FFFFFF;
+    border-radius: 8px 8px 8px 0;
+    font-weight: bold;
+    padding: 10px 18px;
+  }
+}
