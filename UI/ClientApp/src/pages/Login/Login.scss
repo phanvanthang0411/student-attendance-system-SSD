@@ -1,0 +1,20 @@
+:root {
+    --background-login: url(../../../src/assets/images/background-homepage.jpg) no-repeat;
+}
+
+body {
+    background: var(--background-login);
+	
+    #root {
+		margin: auto;
+		
+        .login-container {
+			padding: 30px;
+			width: 100%;;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+    }
+}
+
