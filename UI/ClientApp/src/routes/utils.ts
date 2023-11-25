@@ -1,5 +1,5 @@
 export enum RoutePath{
 	HomePage = "/homepage",
-	LoginPage = "/login",
+	LoginPage = "/",
 	SignupPage = "/signup"
 }

@@ -6,7 +6,7 @@ import LoginPage from '~/pages/Login/Login'
 const route = createBrowserRouter([
     {
         path: RoutePath.LoginPage,
-        element: <LoginPage />
+        element: <LoginPage />,
     },
     {
         path: RoutePath.HomePage,
