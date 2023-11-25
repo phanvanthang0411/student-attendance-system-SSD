@@ -1,19 +1,39 @@
-:root {
-    --background-login: url(../../../src/assets/images/background-homepage.jpg) no-repeat;
-}
-
-body {
-    background: var(--background-login);
-	display: flex;
-	
-    #root {
-		margin: auto;
-		
-        .login-container {
-			width: 100%;;
-            background-color: #fff;
-            border-radius: 8px;
+.-signup-container-page {
+    background: url(../../assets/images/background_login.jpg) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    .css-azc51k-MuiPaper-root {
+        width: 85%;
+        height: 85%;
+        border-radius: 20px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        .css-xdmu94-MuiContainer-root {
+            padding: 50px;
+			.css-13i4rnv-MuiGrid-root {
+				.css-999g2f-MuiFormControl-root {
+					width: 100%;
+				}
+			}
         }
-
+        .css-bhp9pd-MuiPaper-root-MuiCard-root {
+            width: 70%;
+            height: 100%;
+            border-radius: 20px;
+            img {
+                height: 100%;
+            }
+        }
+    }
+    .css-xdmu94-MuiContainer-root {
+        margin: 0;
+		.css-8je8zh-MuiTouchRipple-root{
+			padding: 20px;
+		}
     }
 }

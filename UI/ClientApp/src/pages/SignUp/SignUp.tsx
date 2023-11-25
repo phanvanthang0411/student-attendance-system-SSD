@@ -1,18 +1,46 @@
-import React from 'react'
-import HeaderLogin from '~/Components/commonLogin/HeaderLogin'
-import FormLogin from '~/Components/commonLogin/FormLogin'
+import Card from '@mui/material/Card'
+import CardMedia from '@mui/material/CardMedia'
+import Container from '@mui/material/Container'
+import CssBaseline from '@mui/material/CssBaseline'
+import Paper from '@mui/material/Paper'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import * as React from 'react'
+import Copyright from '~/Components/commonLogin/FooterLogin'
+import FormSignUp from '~/Components/commonLogin/FormSignUp'
 import './SignUp.scss'
-const SignUpPage = () => {
+
+
+const defaultTheme = createTheme()
+
+export default function SignUp() {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const data = new FormData(event.currentTarget)
+        console.log({
+            email: data.get('email'),
+            password: data.get('password')
+        })
+    }
+
     return (
-        <React.Fragment>
-            <HeaderLogin
-                heading='Đăng ký để tạo tài khoản'
-                paragraph='Bạn đã có tài khoản?'
-                linkName='Đăng nhập'
-                linkUrl='/login'
-            />
-            <FormLogin />
-        </React.Fragment>
+        <div className='-signup-container-page'>
+            <ThemeProvider theme={defaultTheme}>
+                <Paper elevation={6}>
+                    <Card>
+                        <CardMedia
+                            component='img'
+                            alt='HUST'
+                            height='140'
+                            image={'./src/assets/images/background_login_2.jpg'}
+                        />
+                    </Card>
+                    <Container component='main' maxWidth='md'>
+                        <CssBaseline />
+                        <FormSignUp handleSubmit={handleSubmit}></FormSignUp>
+                        <Copyright sx={{ mt: 8, mb: 4 }} />
+                    </Container>
+                </Paper>
+            </ThemeProvider>
+        </div>
     )
 }
-export default SignUpPage
