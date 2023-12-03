@@ -6,11 +6,11 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
 import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
+import { Box } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 import RoleLogin from './RoleLogin'
-
+import { RoutePath } from '~/routes/utils'
 interface FormLoginProps {
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 }
@@ -53,7 +53,14 @@ export default function FormLogin({ handleSubmit }: FormLoginProps) {
                     />
                     <RoleLogin textRole='Please select login role:' />
                     <FormControlLabel control={<Checkbox value='remember' color='primary' />} label='Remember me' />
-                    <Button type='submit' fullWidth variant='contained' sx={{ mt: 1, mb: 2 }}>
+
+                    <Button
+                        type='submit'
+                        fullWidth
+                        variant='contained'
+                        sx={{ mt: 1, mb: 2 }}
+                        href={`${RoutePath.HomePage}`}
+                    >
                         Sign In
                     </Button>
                     <Grid container>
@@ -63,7 +70,7 @@ export default function FormLogin({ handleSubmit }: FormLoginProps) {
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href='/signup' variant='body2'>
+                            <Link href={`${RoutePath.SignupPage}`} variant='body2'>
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>

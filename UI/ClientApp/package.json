@@ -15,15 +15,23 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.14.18",
-    "@mui/material": "^5.14.10",
+    "@mui/lab": "^5.0.0-alpha.153",
+    "@mui/material": "^5.14.18",
+    "@mui/x-data-grid": "^6.18.2",
+    "@reduxjs/toolkit": "^1.9.7",
     "bootstrap": "^5.3.1",
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0",
+    "react-router-dom": "^6.20.0",
     "sass": "^1.67.0"
   },
   "devDependencies": {
@@ -40,7 +48,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "prettier": "^3.1.0",
-    "typescript": "^5.0.2",
+    "typescript": "^4.9.5",
     "vite": "^4.4.5"
   }
 }

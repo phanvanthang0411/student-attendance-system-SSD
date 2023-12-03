@@ -1,8 +1,0 @@
-flask
-python-dotenv
-opencv-python
-face-recognition
-facenet
-flask-sqlchemry
-
-

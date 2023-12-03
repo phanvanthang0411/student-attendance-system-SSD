@@ -1,0 +1,65 @@
+.MuiToolbar-root {
+    background: white url(../../../assets/images/background_header.png) right no-repeat;
+    position: relative;
+	color: #646e87;
+	.header-icon-left{
+		display: flex;
+		align-items: center;
+		color: #27313c;
+		.MuiSvgIcon-root{
+			font-size: 16px;
+		}
+		.MuiTypography-root{
+			font-family: "Open Sans", "Segoe UI", Segoe, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+			font-weight: 600;
+			margin-left: 8px;
+			font-size: 14px;
+		}
+	}
+    .header-icon-right {
+        display: flex;
+        position: absolute;
+        right: 24px;
+        align-items: center;
+        padding: 8px;
+        .header-profile {
+			font-family: "Open Sans", "Segoe UI", Segoe, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+            margin-left: 16px;
+            background-color: #a19eae29;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            box-sizing: border-box;
+            color: #5d6778;
+            cursor: pointer;
+            display: flex;
+            height: 40px;
+            max-width: 200px;
+            min-width: 150px;
+            outline: transparent;
+            padding: 4px;
+            text-decoration: none;
+            user-select: none;
+			.MuiAvatar-root{
+				width: 30px;
+				height: 30px;
+			}
+			.header-profile-information{
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				padding: 0 4px 0 8px;
+				width: 100%;
+				.profile-name{
+					font-size: 14px;
+					color: #27313c;
+				}
+				.profile-class-name{
+					font-size: 12px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+        }
+    }
+}
