@@ -7,13 +7,18 @@ import LineAxisSharpIcon from '@mui/icons-material/LineAxisSharp'
 import NotificationsSharpIcon from '@mui/icons-material/NotificationsSharp'
 import SettingsSharpIcon from '@mui/icons-material/SettingsSharp'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import Popper, { PopperPlacementType } from '@mui/material/Popper'
+// import Popper, { PopperPlacementType } from '@mui/material/Popper'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Tooltip from '@mui/material/Tooltip'
-import Typography from '@mui/material/Typography'
+// import Typography from '@mui/material/Typography'
 import ImageProfile from '~/Components/Avatar'
 import PopperInfor from '~/Components/Popper'
+
+import Fade from '@mui/material/Fade'
+import Paper from '@mui/material/Paper'
+import Popper, { PopperPlacementType } from '@mui/material/Popper'
+import Typography from '@mui/material/Typography'
 
 import './Header.scss'
 
@@ -53,7 +58,10 @@ const Header = ({ titleHeader }: Props) => {
                     <Tooltip title='Help' placement='bottom-end'>
                         <HelpSharpIcon sx={{ cursor: 'pointer', margin: '0 16px', fontSize: '30px' }} />
                     </Tooltip>
-                    <div className='header-profile'>
+                    <div
+                        className='header-profile'
+                        onClick={()=> handleClick('bottom-end')}
+                    >
                         <Tooltip title='abc' placement='bottom-end'>
                             <ImageProfile />
                         </Tooltip>
@@ -61,7 +69,16 @@ const Header = ({ titleHeader }: Props) => {
                             <div className='profile-name'>Kevin Phan</div>
                             <div className='profile-class-name'>sdsdfsdfsdfsfsdfdfdfsdf</div>
                         </div>
-                        <KeyboardArrowDownIcon sx={{fontSize: '16px', margin: '8px 4px 0 0'}}/>
+                        <KeyboardArrowDownIcon sx={{ fontSize: '16px', margin: '8px 4px 0 0' }} />
+                        <Popper open={openPopper} anchorEl={anchorEl} placement={placement} transition>
+                            {({ TransitionProps }) => (
+                                <Fade {...TransitionProps} timeout={350}>
+                                    <Paper>
+                                        <Typography sx={{ p: 2 }}>The content of the Popper.</Typography>
+                                    </Paper>
+                                </Fade>
+                            )}
+                        </Popper>
                     </div>
                 </div>
             </Toolbar>
