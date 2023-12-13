@@ -1,6 +1,8 @@
 from flask import Flask
 from .extensions import api, db
-from .resources import ns
+from .studentController import student_ns
+from .teacherController import teacher_ns
+from .imageController import image_ns
 
 
 def create_app():
@@ -11,6 +13,8 @@ def create_app():
     api.init_app(app)
     db.init_app(app)
 
-    api.add_namespace(ns)
+    api.add_namespace(student_ns)
+    api.add_namespace(teacher_ns)
+    api.add_namespace(image_ns)
 
     return app

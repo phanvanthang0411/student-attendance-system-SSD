@@ -26,8 +26,15 @@ python src/classifier.py TRAIN Dataset/FaceData/processed Models/20180402-114759
 
 # Step Three
 
-Chạy real-time webcam
+Run real-time webcam
 
 ```
 python src/face_rec_cam.py
+```
+
+# Step Four
+
+Run model when face_recogination with upload file image
+```
+python src/face-with_image.py
 ```
