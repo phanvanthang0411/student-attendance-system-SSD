@@ -1,5 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_restx import Api
 
-api = Api()
+
+api = Api(version='1.0', title='API Face Recogination System',
+          description='A more complete description',
+          contact='phanvanthang20012001@gmail.com',
+          )
 db = SQLAlchemy()

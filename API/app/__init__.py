@@ -3,6 +3,7 @@ from .extensions import api, db
 from .studentController import student_ns
 from .teacherController import teacher_ns
 from .imageController import image_ns
+from flask_migrate import Migrate
 
 
 def create_app():
@@ -10,6 +11,8 @@ def create_app():
 
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
 
+    migrate = Migrate(app, db)
+    
     api.init_app(app)
     db.init_app(app)
 

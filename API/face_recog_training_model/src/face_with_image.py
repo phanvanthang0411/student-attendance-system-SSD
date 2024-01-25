@@ -66,9 +66,9 @@ def main():
                 best_class_index = np.argmax(predictions)
                 best_class_probability = predictions[0, best_class_index]
                 best_name = class_names[best_class_index]
-                
+
                 face_info = {
-                    "name": best_name if best_class_probability > threshold_for_unknown else "Unknown" ,
+                    "name": best_name if best_class_probability > threshold_for_unknown else "Unknown",
                     # Convert to Python float for JSON serialization
                     "probability": float(best_class_probability),
                     "bounding_box": {
@@ -79,8 +79,6 @@ def main():
                     }
                 }
                 face_list.append(face_info)
-                    
-
 
         # Convert face_list to JSON
         face_list_json = json.dumps(face_list, indent=2)

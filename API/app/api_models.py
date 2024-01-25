@@ -63,6 +63,7 @@ upload_file_model = api.model("FileInput", {
         required=True,
         description='Image file',
         type='file',
-        validate=lambda x: x.mimetype.startswith('image/') or x.mimetype.startswith('video/') if x else False
+        format='binary',
+        example='Choose file...'
     )
 })
