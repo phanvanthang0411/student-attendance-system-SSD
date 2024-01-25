@@ -4,9 +4,10 @@ import { useState } from 'react'
 import BodyPage from '~/Components/Layout/BodyPage'
 import Header from '~/Components/Layout/Header'
 import NavBar from '~/Components/Layout/NavBar'
+// import './Attendance.scss'
 import './Schedule.scss'
 
-const SchedulePage = () => {
+const AttendancePage = () => {
     const [title, setTitle] = useState<string>('Trang chủ')
     const handleNavItemClick = (text: string) => {
         setTitle(text)
@@ -22,4 +23,4 @@ const SchedulePage = () => {
         </Box>
     )
 }
-export default SchedulePage
+export default AttendancePage
