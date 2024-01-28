@@ -3,7 +3,7 @@ import Container from '@mui/material/Container'
 import CssBaseline from '@mui/material/CssBaseline'
 import Paper from '@mui/material/Paper'
 import * as React from 'react'
-import './Login.scss'
+import '../scss/login.scss'
 import MainForm from './mainForm'
 import BackgroundLogin from './backGroundLogin'
 
@@ -18,7 +18,6 @@ export function BaseForm({ className }) {
                     <Container component='main' maxWidth='md'>
                         <CssBaseline />
                         <MainForm />
-
                     </Container>
                 </Paper>
             </ThemeProvider>
