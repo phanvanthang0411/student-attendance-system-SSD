@@ -2,7 +2,7 @@ import Avatar from '@mui/material/Avatar';
 
 const ImageProfile = (path) => {
 	return (
-		<Avatar alt="Name" src={path} />
+		<Avatar alt="Name" src="" />
 	)
 }
 

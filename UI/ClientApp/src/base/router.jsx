@@ -1,24 +1,32 @@
 import RootRouter from './rootRouter'
-import HomePage from '~/pages/Home'
 import { routerPath } from './routerPaths'
+import HomeRouter from '../pages/homeContent/router'
+import DashBoardRouter from '../pages/dashboard/router'
+import AttendanceRouter from '../pages/attendance/router'
+import CalendarRouter from '../pages/calendar/router'
+import SettingRouter from '../pages/setting/router'
 
 export const routers = [
     {
         path: routerPath.Home,
-        component: <HomePage />
+        component: <HomeRouter />
     },
     {
-        path: routerPath.Calendar
+        path: routerPath.Calendar,
+        component: <CalendarRouter />
     },
     {
-        path: routerPath.Attendance
+        path: routerPath.Attendance,
+        component: <AttendanceRouter />
     },
     {
-        path: routerPath.Dashboard
+        path: routerPath.Dashboard,
+        component: <DashBoardRouter />
     },
 
     {
-        path: routerPath.Setting
+        path: routerPath.Setting,
+        component: <SettingRouter />
     }
 ]
 

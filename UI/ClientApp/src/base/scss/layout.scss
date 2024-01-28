@@ -39,6 +39,11 @@
             color: #646e87;
             height: 70px;
             width: 100%;
+			display: flex;
+			align-items: center;
+			.header-breadcrumbs{
+				padding-left: 24px;
+			}
             .header-login {
                 display: flex;
                 position: absolute;
@@ -88,6 +93,6 @@
         }
     }
 }
-.active{
+a.active{
 	background: rgba(16, 20, 25, 0.64)
 }

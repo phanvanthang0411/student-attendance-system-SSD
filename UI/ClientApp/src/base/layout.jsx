@@ -7,12 +7,15 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import ImageProfile from '../commonComponent/component/avatar'
 
 function Layout({ navigations, children, history }) {
+    const handleClick = (location) => {
+        console.log(location)
+    }
     return (
         <>
             <MainLayout
                 history={history}
                 navs={navigations}
-                children={children}
+                // children={children}
                 renderButtons={
                     <div className='header-login'>
                         <Tooltip title='Notification center' placement='bottom-end'>
@@ -22,9 +25,7 @@ function Layout({ navigations, children, history }) {
                             <HelpSharpIcon sx={{ cursor: 'pointer', margin: '0 16px', fontSize: '30px' }} />
                         </Tooltip>
                         <div className='header-profile' onClick={() => handleClick('bottom-end')}>
-                            <Tooltip title='abc' placement='bottom-end'>
-                                <ImageProfile path='./src/assets/images/logo_login.png' />
-                            </Tooltip>
+                            <ImageProfile path='./src/assets/images/logo_login.png' />
                             <div className='header-profile-information'>
                                 <div className='profile-name'>Kevin Phan</div>
                                 <div className='profile-class-name'>Điện tử 03-k64</div>

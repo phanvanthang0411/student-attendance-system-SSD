@@ -47,7 +47,7 @@ const getNavs = () => [
 ]
 
 export default function RootRouter({ routers }) {
-    const navigations = getNavs()
+    const navigations = getNavs();
     return (
         <BrowserRouter>
             <Routes>
