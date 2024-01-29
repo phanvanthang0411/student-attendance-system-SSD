@@ -1,15 +1,10 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "./app/__init__.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ]
+    "framework": "flask",
+    "build": {
+        "command": "flask run",
+        "ignore": ["**/node_modules/**", "**/.git/**"]
+    },
+    "dev": {
+        "port": 5000
+    }
 }
