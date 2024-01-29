@@ -1,10 +1,9 @@
 {
-    "framework": "flask",
-    "build": {
-        "command": "flask run",
-        "ignore": ["**/node_modules/**", "**/.git/**"]
-    },
-    "dev": {
-        "port": 5000
-    }
+    "version": 2,
+    "routes": [
+        {
+        "src": "/(.*)",
+        "dest": "/app/main.py"  
+        }
+    ]
 }
