@@ -2,6 +2,8 @@ import { React, useState } from 'react'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import './scss/layout.scss'
 import { NavLink } from 'react-router-dom'
+import hustLogo from '../assets/images/hustlogo.png'
+import { routerPath } from './routerPaths'
 
 export const Link = ({ children, ...props }) => {
     const attrs = []
@@ -16,7 +18,9 @@ export function MainLayout({ navs, children, history, renderButtons }) {
     return (
         <div className='app-layout'>
             <div className='layout-navs'>
-                <div className='leftNavs-logo'></div>
+                <Link className='leftNavs-logo' to={routerPath.Home}>
+                    <img alt='hustlogo' src={hustLogo} width={70} />
+                </Link>
                 {navs &&
                     navs.map((item, index) => (
                         <div className='leftNavsItem' id={item.id} key={'leftNav-item' + index}>

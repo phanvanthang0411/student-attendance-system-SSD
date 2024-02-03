@@ -1,53 +1,91 @@
-import CalendarMonthSharpIcon from '@mui/icons-material/CalendarMonthSharp'
-import HouseRoundedIcon from '@mui/icons-material/HouseRounded'
-import LineAxisSharpIcon from '@mui/icons-material/LineAxisSharp'
-import BorderColorSharpIcon from '@mui/icons-material/BorderColorSharp'
-import SettingsSharpIcon from '@mui/icons-material/SettingsSharp'
+import { Home, CalendarMonthSharp, BorderColorSharp, ManageAccounts } from '@mui/icons-material'
 import Layout from './layout'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { routerPath } from './routerPaths'
-import LoginPage from '../loginCommon/login'
+import LoginPage from '../structure/login'
 
-const getNavs = () => [
+const getAdminNavs = () => [
     {
         id: 'leftnav-home',
         text: 'Trang chủ',
-        icon: <HouseRoundedIcon />,
+        icon: <Home />,
         url: routerPath.Home,
         exact: true
     },
     {
         id: 'leftnav-calendar',
         text: 'Lịch thi',
-        icon: <CalendarMonthSharpIcon />,
+        icon: <CalendarMonthSharp />,
+        url: routerPath.Calendar,
+        exact: true
+    },
+    {
+        id: 'leftnav-usermanagement',
+        text: 'Quản lý tài khoản',
+        icon: <ManageAccounts />,
+        url: routerPath.UserManagement,
+        exact: true
+    }
+]
+
+const getCandidateNavs = () => [
+    {
+        id: 'leftnav-home',
+        text: 'Trang chủ',
+        icon: <Home />,
+        url: routerPath.Home,
+        exact: true
+    },
+    {
+        id: 'leftnav-calendar',
+        text: 'Lịch thi',
+        icon: <CalendarMonthSharp />,
+        url: routerPath.Calendar,
+        exact: true
+    }
+]
+
+const getSupervisorNavs = () => [
+    {
+        id: 'leftnav-home',
+        text: 'Trang chủ',
+        icon: <Home />,
+        url: routerPath.Home,
+        exact: true
+    },
+    {
+        id: 'leftnav-calendar',
+        text: 'Lịch thi',
+        icon: <CalendarMonthSharp />,
         url: routerPath.Calendar,
         exact: true
     },
     {
         id: 'leftnav-attendance',
         text: 'Điểm danh',
-        icon: <BorderColorSharpIcon />,
-        url: routerPath.Attendance,
-        exact: true
-    },
-    {
-        id: 'leftnav-dashboard',
-        text: 'Thống kê',
-        icon: <LineAxisSharpIcon />,
-        url: routerPath.Dashboard,
-        exact: true
-    },
-    {
-        id: 'leftnav-setting',
-        text: 'Cài đặt',
-        icon: <SettingsSharpIcon />,
-        url: routerPath.Setting,
-        exact: true
+        icon: <BorderColorSharp />,
+        url: routerPath.Attendance
     }
 ]
 
+const getDefaultNavs = () => []
+
 export default function RootRouter({ routers }) {
-    const navigations = getNavs();
+    let navigations = []
+    switch (localStorage.getItem('role')) {
+        case 'admin':
+            navigations = getAdminNavs()
+            break
+        case 'candidate':
+            navigations = getCandidateNavs()
+            break
+        case 'supervisor':
+            navigations = getSupervisorNavs()
+            break
+        default:
+            navigations = getDefaultNavs()
+            break
+    }
     return (
         <BrowserRouter>
             <Routes>

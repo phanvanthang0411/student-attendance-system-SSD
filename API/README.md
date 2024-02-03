@@ -3,7 +3,7 @@
 Khởi tạo môi trường
 
 ```
-python -m venve env
+python -m venv env
 ```
 
 # Step Two

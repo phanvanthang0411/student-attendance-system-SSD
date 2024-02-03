@@ -1,12 +1,38 @@
 import RootRouter from './rootRouter'
 import { routerPath } from './routerPaths'
 import HomeRouter from '../pages/homeContent/router'
-import DashBoardRouter from '../pages/dashboard/router'
 import AttendanceRouter from '../pages/attendance/router'
 import CalendarRouter from '../pages/calendar/router'
-import SettingRouter from '../pages/setting/router'
+import UserManagement from '../pages/usermanagement/router'
+import LoginPage from '../structure/login'
 
-export const routers = [
+export const adminRouters = [
+    {
+        path: routerPath.Home,
+        component: <HomeRouter />
+    },
+    {
+        path: routerPath.Calendar,
+        component: <CalendarRouter />
+    },
+    {
+        path: routerPath.UserManagement,
+        component: <UserManagement />
+    }
+]
+
+export const candidateRouters = [
+    {
+        path: routerPath.Home,
+        component: <HomeRouter />
+    },
+    {
+        path: routerPath.Calendar,
+        component: <CalendarRouter />
+    }
+]
+
+export const supervisorRouters = [
     {
         path: routerPath.Home,
         component: <HomeRouter />
@@ -18,18 +44,31 @@ export const routers = [
     {
         path: routerPath.Attendance,
         component: <AttendanceRouter />
-    },
-    {
-        path: routerPath.Dashboard,
-        component: <DashBoardRouter />
-    },
+    }
+]
 
+export const defaultRouters = [
     {
-        path: routerPath.Setting,
-        component: <SettingRouter />
+        path: routerPath.Login,
+        component: <LoginPage />
     }
 ]
 
 export default function Router() {
+    let routers = ''
+    switch (localStorage.getItem('role')) {
+        case 'admin':
+            routers = adminRouters
+            break
+        case 'candidate':
+            routers = candidateRouters
+            break
+        case 'supervisor':
+            routers = supervisorRouters
+            break
+        default:
+            routers = defaultRouters
+            break
+    }
     return <RootRouter routers={routers} />
 }
