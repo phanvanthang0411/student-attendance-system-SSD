@@ -1,8 +1,9 @@
 export const routerPath = {
-	Login : "/",
-	Home :"/home",
-	Calendar : "/calendar",
-	Attendance: "/attendance",
-	Dashboard : "/dashboard",
-	Setting : "/setting",
+    Login: '/',
+    Home: '/home',
+    Calendar: '/calendar',
+    Attendance: '/attendance',
+    Dashboard: '/dashboard',
+    Setting: '/setting',
+    UserManagement: '/usermanagement'
 }
