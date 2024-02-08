@@ -145,7 +145,7 @@ class LoginPage extends React.Component {
                                         </FormControl>
                                         <Button
                                             disabled={
-                                                this.props.email == '' ||
+                                                !this.checkEmailValidate(this.props.email) ||
                                                 this.state.password == '' ||
                                                 this.props.role == ''
                                             }

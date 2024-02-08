@@ -50,6 +50,11 @@
 
 			.header-breadcrumbs{
 				padding-left: 24px;
+				&-detail{
+					font-weight: bold;
+					color: #27313c;
+					// font-size: 30px;
+				}
 			}
             .header-login {
                 display: flex;
@@ -100,6 +105,10 @@
                 }
             }
         }
+		.layout-content{
+			height: calc(100% - 70px);
+			padding: 20px;
+		}
     }
 }
 a.active.link-item{

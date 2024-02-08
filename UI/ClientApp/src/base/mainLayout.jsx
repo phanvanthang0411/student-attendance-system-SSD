@@ -1,9 +1,10 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import './scss/layout.scss'
 import { NavLink } from 'react-router-dom'
 import hustLogo from '../assets/images/hustlogo.png'
 import { routerPath } from './routerPaths'
+import { useSelector } from 'react-redux'
 
 export const Link = ({ children, ...props }) => {
     const attrs = []
@@ -13,8 +14,10 @@ export const Link = ({ children, ...props }) => {
         </NavLink>
     )
 }
-export function MainLayout({ navs, children, history, renderButtons }) {
-    const [breadcrumbs, setBreadcrumbs] = useState([])
+
+export function MainLayout({ navs, children, renderButtons }) {
+    const breadcrumb = useSelector((state) => state.layout.breadcrumb)
+
     return (
         <div className='app-layout'>
             <div className='layout-navs'>
@@ -39,7 +42,7 @@ export function MainLayout({ navs, children, history, renderButtons }) {
                 <div className='layout-header'>
                     <div className='header-breadcrumbs'>
                         <Breadcrumbs separator='›' aria-label='breadcrumb'>
-                            <Link>MUI</Link>
+                            <div className='header-breadcrumbs-detail'>{breadcrumb}</div>
                         </Breadcrumbs>
                     </div>
                     {renderButtons}

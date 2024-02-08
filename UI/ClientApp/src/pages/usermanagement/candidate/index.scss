@@ -1,0 +1,10 @@
+.a-candidate-management{
+	display: flex;
+	flex-flow: column;
+	gap: 16px;
+	.a-candidate-management-button{
+		display: flex;
+		flex-flow: row;
+		gap: 8px;
+	}
+}
