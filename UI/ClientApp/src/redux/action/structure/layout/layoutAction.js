@@ -4,4 +4,8 @@ const changeBreadcrumb = (breadcrumb) => (dispatch) => {
     dispatch({ type: constants.LAYOUT_BREADCRUMB_CHANGE, breadcrumb: breadcrumb })
 }
 
-export { changeBreadcrumb }
+const setGlobalLoading = (isLoading) => (dispatch) => {
+    dispatch({ type: constants.LAYOUT_GLOBAL_LOADING_SET, globalLoading: isLoading })
+}
+
+export { changeBreadcrumb, setGlobalLoading }

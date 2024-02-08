@@ -4,6 +4,16 @@ import DefaultButton from '../../../commonComponent/defaultbutton'
 import DefaultPanel from '../../../commonComponent/defaultpanel'
 import { Delete, Edit } from '@mui/icons-material'
 import './index.scss'
+import { LayoutAction } from '../../../redux/action'
+import { connect } from 'react-redux'
+
+const mapStateToProps = () => {
+    return {}
+}
+
+const mapDispatchToProps = {
+    setGlobalLoading: LayoutAction.setGlobalLoading
+}
 
 class CandidateManagement extends React.Component {
     constructor(props) {
@@ -31,6 +41,13 @@ class CandidateManagement extends React.Component {
         this.setState({ isCreatePanelOpen: false, isEditPanelOpen: false })
     }
 
+    handleSaveCreatePanel = () => {
+        this.props.setGlobalLoading(true)
+        setTimeout(() => {
+            this.props.setGlobalLoading(false), this.handleCancelButtonClick()
+        }, 3000)
+    }
+
     render() {
         return (
             <div className='a-candidate-management'>
@@ -55,6 +72,7 @@ class CandidateManagement extends React.Component {
                     isOpen={this.state.isCreatePanelOpen}
                     onCancelButtonClick={this.handleCancelButtonClick}
                     title={'Thêm thí sinh'}
+                    onPrimaryButtonClick={this.handleSaveCreatePanel}
                 />
                 <DefaultPanel
                     isOpen={this.state.isEditPanelOpen}
@@ -66,4 +84,4 @@ class CandidateManagement extends React.Component {
     }
 }
 
-export default CandidateManagement
+export default connect(mapStateToProps, mapDispatchToProps)(CandidateManagement)
