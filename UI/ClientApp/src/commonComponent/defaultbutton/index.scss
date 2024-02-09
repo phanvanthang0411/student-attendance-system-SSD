@@ -1,0 +1,22 @@
+.a-default-button{
+	font-family: "Open Sans", "Segoe UI", Segoe, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: 600;
+	width: fit-content;
+	text-transform: none !important;
+
+	&.MuiButton-contained{
+		background-color: #0c5776 !important;
+	}
+
+	&.MuiButton-text{
+		color: #27313c;
+	}
+
+	&.MuiButton-outlined{
+		color: #27313c;
+		border-color: #27313c;
+		&:hover{
+			border-color: #27313c;
+		}
+	}
+}

@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Menu, Tooltip, ListItemIcon, Avatar, MenuItem, Divider } from '@mui/material'
 import { HelpSharp, KeyboardArrowDown, Logout, NotificationsSharp, KeyboardArrowUp } from '@mui/icons-material'
 import { routerPath } from './routerPaths'
+import { Outlet } from 'react-router-dom'
 
 const mapStateToProps = ({ login }) => {
     return {
@@ -120,7 +121,7 @@ class Layout extends React.Component {
                         </div>
                     }
                 >
-                    {this.props.children}
+                    <Outlet />
                 </MainLayout>
             </>
         )

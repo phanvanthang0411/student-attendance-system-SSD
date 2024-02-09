@@ -3,13 +3,10 @@ import { useLocation } from 'react-router-dom'
 
 export default function ModulRouter({ routers, onChangePathName }) {
     let location = useLocation()
-	console.log(routers);
+    console.log(routers)
     useEffect(() => {
-        debugger
-        console.log(location.pathname);
+        console.log(location.pathname)
     }, [location])
 
-	return (
-		<React.Fragment>abc</React.Fragment>
-	)
+    return <React.Fragment>abc</React.Fragment>
 }

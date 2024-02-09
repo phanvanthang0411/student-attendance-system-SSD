@@ -1,0 +1,35 @@
+.a-defaultpanel{
+	.MuiPaper-root{
+		padding: 24px;
+
+		.a-defaultpanel-header{
+			display: flex;
+			flex-flow: row;
+			gap: 8px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #27313C;
+			align-items: center;
+			justify-content: space-between;
+
+			.MuiButtonBase-root{
+				border-radius: 5%;
+			}
+		}
+
+		.MuiDivider-root{
+			margin: 16px 0;
+			background-color: #8a8a8a;
+		}
+
+		.a-defaultpanel-footer{
+			display: flex;
+			flex-flow: row;
+			gap: 8px;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			padding: 24px;
+		}
+	}
+}
