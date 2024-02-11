@@ -1,0 +1,31 @@
+.a-defaultselect{
+	display: flex;
+	flex-flow: column;
+	gap: 4px;
+	&-label{
+		color: #27313C;
+		font-weight: 600;
+		display: flex;
+		flex-flow: row;
+		gap: 4px;
+		&-required{
+			color: red;
+		}
+	}
+
+	.MuiSelect-select{
+		font-size: 14px;
+    	color: #27313C;
+		font-family: "Open Sans", "Segoe UI", Segoe, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	}
+
+	&-placeholder{
+		color: #757575;
+	}
+}
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+	font-size: 14px !important;
+    color: #27313C !important;
+	font-family: "Open Sans", "Segoe UI", Segoe, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}

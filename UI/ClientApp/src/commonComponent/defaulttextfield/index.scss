@@ -1,0 +1,21 @@
+.a-defaulttextfield{
+	display: flex;
+	flex-flow: column;
+	gap: 4px;
+	&-label{
+		color: #27313C;
+		font-weight: 600;
+		display: flex;
+		flex-flow: row;
+		gap: 4px;
+		&-required{
+			color: red;
+		}
+	}
+
+	input{
+		font-size: 14px;
+    	color: #27313C;
+		font-family: "Open Sans", "Segoe UI", Segoe, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	}
+}

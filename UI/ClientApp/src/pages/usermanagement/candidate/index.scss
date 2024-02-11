@@ -1,10 +1,15 @@
-.a-candidate-management{
+.a-candidatemanagement{
 	display: flex;
 	flex-flow: column;
 	gap: 16px;
-	.a-candidate-management-button{
+	&-button{
 		display: flex;
 		flex-flow: row;
 		gap: 8px;
+	}
+	&-panel{
+		display: flex;
+		flex-flow: column;
+		gap: 16px;
 	}
 }

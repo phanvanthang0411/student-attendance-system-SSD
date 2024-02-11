@@ -51,13 +51,13 @@ export default function CommonTabs({ tabs }) {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={value} onChange={handleChange} aria-label='basic tabs example'>
                     {tabs.map((item, index) => {
-                        return <Tab label={item.label} {...a11yProps(index)} />
+                        return <Tab key={index} label={item.label} {...a11yProps(index)} />
                     })}
                 </Tabs>
             </Box>
             {tabs.map((item, index) => {
                 return (
-                    <CustomTabPanel value={value} index={index}>
+                    <CustomTabPanel key={index} value={value} index={index}>
                         {item.value}
                     </CustomTabPanel>
                 )
