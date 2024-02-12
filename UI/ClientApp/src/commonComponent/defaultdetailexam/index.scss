@@ -1,0 +1,42 @@
+.a-defaultdetailexam{
+	background-color: white;
+    border-radius: 15px;
+    border: 1px solid #dadada;
+	display: flex;
+	width: 100%;
+
+	&-time{
+		border-right: 1px solid #dadada;
+		border-radius: 15px 0 0 15px;
+		padding: 16px;
+		font-weight: 600;
+		font-size: large;
+		background-color: rgb(209, 232, 209);
+	}
+
+	&-detail{
+		padding: 16px;
+		display: flex;
+		flex-flow: column;
+		gap: 8px;
+		width: 80%;
+
+		&-name{
+			font-weight: 600;
+		}
+
+		&-other{
+			display: flex;
+			justify-content: space-between;
+			div{
+				align-items: center;
+    			display: flex;
+				gap: 8px;
+
+				svg{
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}
