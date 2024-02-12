@@ -6,6 +6,9 @@ import { Delete, Edit } from '@mui/icons-material'
 import './index.scss'
 import { LayoutAction } from '../../../redux/action'
 import { connect } from 'react-redux'
+import DefaultTextField from '../../../commonComponent/defaulttextfield'
+import DefaultSelect from '../../../commonComponent/defaultselect'
+import CommonImageUpload from '../../../commonComponent/commonimageupload'
 
 const mapStateToProps = () => {
     return {}
@@ -21,7 +24,14 @@ class CandidateManagement extends React.Component {
         this.state = {
             selectedItems: [],
             isCreatePanelOpen: false,
-            isEditPanelOpen: false
+            isEditPanelOpen: false,
+            createdItem: {
+                name: '',
+                email: '',
+                password: '',
+                role: '',
+                image: []
+            }
         }
     }
 
@@ -48,10 +58,36 @@ class CandidateManagement extends React.Component {
         }, 3000)
     }
 
+    roleItems = [
+        { key: 'ak-admin', text: 'Admin' },
+        { key: 'ak-candidate', text: 'Thí sinh' },
+        { key: 'ak-supervior', text: 'Giám thị' }
+    ]
+
+    handleImageChange = () => {}
+
+    onRoleChange = (value) => {
+        this.setState({ createdItem: { ...this.setState.createdItem, role: value } })
+    }
+
+    onRenderPanelContent = () => {
+        return (
+            <div className='a-candidatemanagement-panel'>
+                <DefaultTextField label={'Họ và tên'} required />
+                <DefaultTextField label={'Email'} required />
+                <DefaultTextField label={'Password'} required />
+                <DefaultSelect label={'Vai trò'} required items={this.roleItems} onChange={this.onRoleChange} />
+                {this.state.createdItem.role == 'Thí sinh' && (
+                    <CommonImageUpload onChange={this.handleImageChange} label={'Dữ liệu khuôn mặt'} required />
+                )}
+            </div>
+        )
+    }
+
     render() {
         return (
-            <div className='a-candidate-management'>
-                <div className='a-candidate-management-button'>
+            <div className='a-candidatemanagement'>
+                <div className='a-candidatemanagement-button'>
                     <DefaultButton buttonName={'Thêm'} variant='contained' onClick={this.handleCreateButtonClick} />
                     <DefaultButton
                         buttonName={'Sửa'}
@@ -73,6 +109,7 @@ class CandidateManagement extends React.Component {
                     onCancelButtonClick={this.handleCancelButtonClick}
                     title={'Thêm thí sinh'}
                     onPrimaryButtonClick={this.handleSaveCreatePanel}
+                    onRenderPanelContent={this.onRenderPanelContent()}
                 />
                 <DefaultPanel
                     isOpen={this.state.isEditPanelOpen}

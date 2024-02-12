@@ -1,0 +1,31 @@
+.a-commonimageupload{
+	display: flex;
+	flex-flow: column;
+	gap: 4px;
+
+	&-label{
+		color: #27313C;
+		font-weight: 600;
+		display: flex;
+		flex-flow: row;
+		gap: 4px;
+		&-required{
+			color: red;
+		}
+	}
+
+	&-image{
+		position: relative;
+		img{
+			width: 100%;
+		}
+
+		button{
+			background-color: rgba(237, 237, 237, 0.54);
+			position: absolute;
+    		top: 0px;
+    		right: 0px;
+			border-radius: 5%;
+		}
+	}
+}

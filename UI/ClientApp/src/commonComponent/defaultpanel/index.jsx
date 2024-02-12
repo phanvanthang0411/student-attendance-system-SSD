@@ -18,6 +18,7 @@ export default function DefaultPanel(props) {
                     </IconButton>
                 </div>
                 <Divider />
+                <div className='a-defaultpanel-content'>{props.onRenderPanelContent}</div>
                 <div className='a-defaultpanel-footer'>
                     <DefaultButton buttonName={'Hủy'} variant='outlined' onClick={props.onCancelButtonClick} />
                     <DefaultButton buttonName={'Lưu'} variant='contained' onClick={props.onPrimaryButtonClick} />
