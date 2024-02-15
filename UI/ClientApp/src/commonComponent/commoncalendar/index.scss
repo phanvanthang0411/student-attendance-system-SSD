@@ -1,0 +1,13 @@
+.a-commoncalendar{
+	margin: unset !important;
+	background: white;
+    border-radius: 15px;
+    border: 1px solid #dadada;
+
+	.Mui-selected{
+		background-color: #0c5776 !important;
+		:hover{
+			background-color: #0c5776 !important;
+		}
+	}
+}

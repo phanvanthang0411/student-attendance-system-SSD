@@ -1,0 +1,43 @@
+.a-detailattendance{
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	&-detail{
+		background-color: white;
+    	border-radius: 15px;
+    	border: 1px solid #dadada;
+		padding: 16px;
+		width: 100%;
+		display: grid;
+		grid-template-columns: auto auto;
+		row-gap: 8px;
+		height: fit-content;
+
+		.a-examclass{
+			display: flex;
+			&-title{
+				padding: 8px;
+				max-width: 220px;
+				width: 50%;
+				background-color: #f7f7f7;
+				font-weight: 600;
+			}
+
+			&-info{
+				padding: 8px 16px;
+			}
+		}
+	}
+	&-candidatelist{
+		background-color: white;
+    	border-radius: 15px;
+    	border: 1px solid #dadada;
+		padding: 16px;
+		width: 50%;
+		&-title{
+			font-weight: 600;
+			font-size: large;
+			padding-bottom: 16px;
+		}
+	}
+}

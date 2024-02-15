@@ -5,6 +5,7 @@ import AttendanceRouter from '../pages/attendance/router'
 import CalendarRouter from '../pages/calendar/router'
 import UserManagement from '../pages/usermanagement/router'
 import LoginPage from '../structure/login'
+import DetailAttendance from '../pages/attendance/detail'
 
 export const adminRouters = [
     {
@@ -44,6 +45,10 @@ export const supervisorRouters = [
     {
         path: routerPath.Attendance,
         component: <AttendanceRouter />
+    },
+    {
+        path: routerPath.DetailAttendance,
+        component: <DetailAttendance />
     }
 ]
 

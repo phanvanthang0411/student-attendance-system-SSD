@@ -1,21 +1,24 @@
-import ModulRouter from '../../commonComponent/component/modulRouter'
-import { routerPath } from './routerPath.'
-import Attandance from './home'
-import BorderColorSharpIcon from '@mui/icons-material/BorderColorSharp'
+import Attendance from './home'
+import React from 'react'
+import { connect } from 'react-redux'
+import { LayoutAction } from '../../redux/action'
 
-const routers = [
-    {
-        path: routerPath.Attendance,
-        component: <Attandance />
-    }
-]
-
-export default function Router() {
-    const onChangePathName = (router) => {
-        let breadcrumb = [{ text: 'Điểm danh', icon: <BorderColorSharpIcon /> }]
-        if (router.breadcrumb && router.breadcrumb.length > 0) {
-            breadcrumb = [{ text: 'Điểm danh', icon: <BorderColorSharpIcon /> }, ...router.breadcrumb]
-        }
-    }
-    return <ModulRouter routers={routers} onChangePathName={onChangePathName} />
+const mapStateToProps = () => {
+    return {}
 }
+
+const mapDispatchToProps = {
+    changeBreadcrumb: LayoutAction.changeBreadcrumb
+}
+
+class Router extends React.Component {
+    constructor(props) {
+        super(props)
+        this.props.changeBreadcrumb('Điểm danh')
+    }
+    render() {
+        return <Attendance />
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Router)

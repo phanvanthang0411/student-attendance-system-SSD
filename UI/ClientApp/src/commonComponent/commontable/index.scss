@@ -2,4 +2,20 @@
 	.Mui-checked{
 		color: #0c5776 !important;
 	}
+
+	.MuiDataGrid-root{
+		box-shadow: 0 2px 12px 0 rgba(39, 49, 60, 0.16);
+
+		.MuiDataGrid-virtualScrollerContent {
+			background-color: white;
+		}
+
+		.MuiTablePagination-displayedRows, .MuiTablePagination-selectLabel{
+			margin: unset;
+		}
+
+		.MuiDataGrid-columnHeaderTitle{
+			font-weight: 600;
+		}
+	}
 }
