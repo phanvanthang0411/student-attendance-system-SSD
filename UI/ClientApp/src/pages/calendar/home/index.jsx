@@ -11,20 +11,20 @@ class Calendar extends React.Component {
             selectedDate: dayjs(),
             examList: [
                 {
-                    examClassName: 'Toán 12',
-                    room: 'D3-101',
+                    examClassName: 'Vật lý I',
+                    room: 'D3-401',
+                    startTime: '09:30',
+                    endTime: '14:00',
+                    duration: '90 phút',
+                    supervisors: ['Trương Hồng Ánh', 'Vũ Trọng Phụng']
+                },
+                {
+                    examClassName: 'Giải tích I',
+                    room: 'D3-301',
                     startTime: '12:30',
                     endTime: '14:00',
                     duration: '90 phút',
-                    supervisors: ['Liêm', 'Khiết']
-                },
-                {
-                    examClassName: 'Văn 12',
-                    room: 'D3-102',
-                    startTime: '14:00',
-                    endTime: '15:30',
-                    duration: '90 phút',
-                    supervisors: ['Liêm', 'Khiết']
+                    supervisors: ['Trương Hồng Ánh']
                 }
             ]
         }

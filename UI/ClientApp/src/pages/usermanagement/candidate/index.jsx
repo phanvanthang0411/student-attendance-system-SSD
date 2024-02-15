@@ -84,6 +84,28 @@ class CandidateManagement extends React.Component {
         )
     }
 
+    columns = [
+        { field: 'id', headerName: 'Id', width: 70 },
+        { field: 'userName', headerName: 'Họ và tên', width: 180 },
+        {
+            field: 'email',
+            headerName: 'Email',
+            width: 200
+        },
+        {
+            field: 'password',
+            headerName: 'Mật Khẩu',
+            width: 160
+        }
+    ]
+
+    rows = [
+        { id: 1, userName: 'Trần Xuân Khải', email: 'khaitran982001@gmail.com', password: '1qaz2wsxE' },
+        { id: 2, userName: 'Phan Văn Thắng', email: 'thangphan@gmail.com', password: '1qaz2wsxE' },
+        { id: 3, userName: 'Trịnh Việt Hoàng', email: 'hoangtv2@gmail.com', password: '1qaz2wsxE' },
+        { id: 4, userName: 'Nguyễn Tùng Lâm', email: 'tunglamnguyen@gmail.com', password: '1qaz2wsxE' }
+    ]
+
     render() {
         return (
             <div className='a-candidatemanagement'>
@@ -103,7 +125,7 @@ class CandidateManagement extends React.Component {
                         disabled={this.state.selectedItems.length == 0}
                     />
                 </div>
-                <CommonTable onSelected={this.onSelectItem} />
+                <CommonTable columns={this.columns} rows={this.rows} onSelected={this.onSelectItem} isCheckbox />
                 <DefaultPanel
                     isOpen={this.state.isCreatePanelOpen}
                     onCancelButtonClick={this.handleCancelButtonClick}
