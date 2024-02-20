@@ -5,3 +5,4 @@ flask-restx
 python-dotenv
 flask_swagger_ui
 Flask-Migrate
+flask-cors

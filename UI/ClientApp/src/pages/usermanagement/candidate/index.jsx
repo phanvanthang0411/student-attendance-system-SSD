@@ -136,7 +136,8 @@ class CandidateManagement extends React.Component {
                 <DefaultPanel
                     isOpen={this.state.isEditPanelOpen}
                     onCancelButtonClick={this.handleCancelButtonClick}
-                    title={'Sửa thí sinh' + this.state.selectedItems}
+                    title={'Sửa thí sinh'}
+					onRenderPanelContent={this.onRenderPanelContent()}
                 />
             </div>
         )

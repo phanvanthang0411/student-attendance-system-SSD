@@ -1,7 +1,17 @@
+import React, { useEffect } from 'react'
+
 const HomeContent = () => {
-	return (
-		<>Đây là content trang chủ</>
-	)
+    useEffect(() => {
+        fetch('http://localhost:5000/User/users')
+            .then((res) => {
+				console.log(res)
+                return res
+            })
+            .then((data) => {
+                console.log(data)
+            })
+    }, [])
+    return <div>Hiện tại bạn chưa có tin tức mới.</div>
 }
 
 export default HomeContent

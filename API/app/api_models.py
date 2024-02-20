@@ -2,27 +2,25 @@ from flask_restx import fields
 
 from .extensions import api
 
-student_model = api.model("Student", {
-    'Id': fields.Integer,
-    'Name': fields.String,
-    'FullName': fields.String,
-    'StudentCode': fields.Integer,
-    'Gender': fields.String,
-    'PhoneNumber': fields.String,
-    'Email': fields.String,
-    'UserName': fields.String,
-    'PassWordHash': fields.String
+user_model = api.model("User", {
+    'userId': fields.Integer,
+    'userName': fields.String,
+    'email': fields.String,
+    'role': fields.String,
+    'password': fields.String,
+    'identifyImage': fields.String
 })
 
-teacher_model = api.model("Teacher", {
-    'Id': fields.Integer,
-    'Name': fields.String,
-    'FullName': fields.String,
-    'Gender': fields.String,
-    'PhoneNumber': fields.String,
-    'Email': fields.String,
-    'UserName': fields.String,
-    'PassWordHash': fields.String
+examclass_model = api.model("ExamClass", {
+    'examClassId': fields.Integer,
+    'examClassName': fields.String,
+    'room': fields.String,
+    'date': fields.String,
+    'startTime': fields.String,
+    'endTime': fields.String,
+    'duration': fields.String,
+    'attendanceStatus': fields.String,
+    'attendanceImage': fields.String,
 })
 
 image_model = api.model("Image", {
@@ -32,25 +30,23 @@ image_model = api.model("Image", {
 })
 
 
-student_input_model = api.model("StudentInput", {
-    'Name': fields.String,
-    'FullName': fields.String,
-    'StudentCode': fields.Integer,
-    'Gender': fields.String,
-    'PhoneNumber': fields.String,
-    'Email': fields.String,
-    'UserName': fields.String,
-    'PassWordHash': fields.String
+user_input_model = api.model("UserInput", {
+    'userName': fields.String,
+    'email': fields.String,
+    'role': fields.String,
+    'password': fields.String,
+    'identifyImage': fields.String
 })
 
-teacher_input_model = api.model("TeacherInput", {
-    'Name': fields.String,
-    'FullName': fields.String,
-    'Gender': fields.String,
-    'PhoneNumber': fields.String,
-    'Email': fields.String,
-    'UserName': fields.String,
-    'PassWordHash': fields.String
+examclass_input_model = api.model("ExamClassInput", {
+    'examClassName': fields.String,
+    'room': fields.String,
+    'date': fields.String,
+    'startTime': fields.String,
+    'endTime': fields.String,
+    'duration': fields.String,
+    'attendanceStatus': fields.String,
+    'attendanceImage': fields.String,
 })
 image_input_model = api.model("ImageInput", {
     'FileName': fields.String,
