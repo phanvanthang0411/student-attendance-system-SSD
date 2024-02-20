@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "http://localhost:5000",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -26,6 +27,7 @@
     "@mui/x-data-grid": "^6.18.2",
     "@mui/x-date-pickers": "^6.19.4",
     "@reduxjs/toolkit": "^1.9.7",
+    "axios": "^1.6.7",
     "bootstrap": "^5.3.1",
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",

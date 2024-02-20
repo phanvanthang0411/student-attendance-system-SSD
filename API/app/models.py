@@ -1,28 +1,27 @@
 from .extensions import db
+from sqlalchemy import Date, Time, Boolean
 
 
-class Student(db.Model):
-    Id = db.Column(db.Integer, primary_key=True)
-    Name = db.Column(db.String(100), nullable=False)
-    FullName = db.Column(db.String(100), nullable=False)
-    StudentCode = db.Column(db.Integer, unique=True)
-    Gender = db.Column(db.String(100), nullable=False)
-    PhoneNumber = db.Column(db.String(100))
-    Email = db.Column(db.String(100), unique=True)
-    UserName = db.Column(db.String(100), nullable=False, unique=True)
-    PassWordHash = db.Column(db.String(100), nullable=False, unique=True)
+class User(db.Model):
+    userId = db.Column(db.Integer, primary_key=True)
+    userName = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False, unique=True)
+    role = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(100), nullable=False, unique=True)
+    identifyImage = db.Column(db.String(100), nullable=False, unique=True)
 
 
-class Teacher(db.Model):
-    Id = db.Column(db.Integer, primary_key=True)
-    Name = db.Column(db.String(100), nullable=False)
-    FullName = db.Column(db.String(100), nullable=False)
-    Gender = db.Column(db.String(100), nullable=False)
-    PhoneNumber = db.Column(db.String(100), nullable=False)
-    Email = db.Column(db.String(100), unique=True)
-    UserName = db.Column(db.String(100), nullable=False, unique=True)
-    PassWordHash = db.Column(db.String(100), nullable=False, unique=True)
-
+class ExamClass(db.Model):
+    examClassId = db.Column(db.Integer, primary_key=True)
+    examClassName = db.Column(db.String(100), nullable=False)
+    room = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.String(100), nullable=False)
+    startTime = db.Column(db.String(100), nullable=False)
+    endTime = db.Column(db.String(100), nullable=False)
+    duration = db.Column(db.String(100))
+    attendanceStatus = db.Column(db.String(100))
+    attendanceImage = db.Column(db.String(10000))
+    
 
 class Image(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
