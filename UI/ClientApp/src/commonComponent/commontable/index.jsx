@@ -17,6 +17,7 @@ export default function CommonTable(props) {
                 checkboxSelection={props.isCheckbox}
                 onRowSelectionModelChange={props.onSelected}
                 hideFooter={props.hideFooter}
+                getRowId={props.getRowId}
             />
         </div>
     )
