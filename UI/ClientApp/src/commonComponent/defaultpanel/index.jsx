@@ -10,7 +10,7 @@ import { IconButton } from '@mui/material'
 export default function DefaultPanel(props) {
     return (
         <Drawer className='a-defaultpanel' anchor={'right'} open={props.isOpen} onClose={() => {}}>
-            <Box sx={{ width: 360 }} role='presentation'>
+            <Box sx={{ width: 600 }} role='presentation'>
                 <div className='a-defaultpanel-header'>
                     <div>{props.title}</div>
                     <IconButton aria-label='close' size='small' onClick={props.onCancelButtonClick}>

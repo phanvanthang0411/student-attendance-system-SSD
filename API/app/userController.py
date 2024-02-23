@@ -18,10 +18,10 @@ class UserListAPI(Resource):
     def post(self):
         print(user_ns.payload)
         user = User(userName=user_ns.payload['userName'],
-                          email=user_ns.payload['email'],
-                          password=user_ns.payload['password'],
-                          role=user_ns.payload['role'],
-                          identifyImage=user_ns.payload['identifyImage'],)
+                    email=user_ns.payload['email'],
+                    password=user_ns.payload['password'],
+                    role=user_ns.payload['role'],
+                    identifyImage=user_ns.payload['identifyImage'],)
         db.session.add(user)
         db.session.commit()
         return user, 201
@@ -43,10 +43,10 @@ class UserAPI(Resource):
         user = User.query.get(user_id)
         if user:
             user = User(userName=user_ns.payload['userName'],
-                          email=user_ns.payload['email'],
-                          password=user_ns.payload['password'],
-                          role=user_ns.payload['role'],
-                          identifyImage=user_ns.payload['identifyImage'],)
+                        email=user_ns.payload['email'],
+                        password=user_ns.payload['password'],
+                        role=user_ns.payload['role'],
+                        identifyImage=user_ns.payload['identifyImage'],)
             db.session.commit()
             return user
         else:

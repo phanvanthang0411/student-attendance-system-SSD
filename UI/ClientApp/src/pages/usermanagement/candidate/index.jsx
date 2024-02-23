@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import DefaultTextField from '../../../commonComponent/defaulttextfield'
 import DefaultSelect from '../../../commonComponent/defaultselect'
 import CommonImageUpload from '../../../commonComponent/commonimageupload'
+import axios from 'axios'
 
 const mapStateToProps = () => {
     return {}
@@ -18,6 +19,8 @@ const mapDispatchToProps = {
     setGlobalLoading: LayoutAction.setGlobalLoading
 }
 
+const url = 'http://localhost:5000/User/users'
+
 class CandidateManagement extends React.Component {
     constructor(props) {
         super(props)
@@ -25,18 +28,35 @@ class CandidateManagement extends React.Component {
             selectedItems: [],
             isCreatePanelOpen: false,
             isEditPanelOpen: false,
+            students: [],
             createdItem: {
-                name: '',
+                userName: '',
                 email: '',
                 password: '',
-                role: '',
-                image: []
+                role: 'Thí sinh',
+                identifyImage: 'thai'
             }
+        }
+    }
+
+    componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData = async () => {
+        try {
+            const response = await axios.get(url)
+            const listUsers = response.data
+
+            this.setState({ students: listUsers })
+        } catch (e) {
+            console.log(e)
         }
     }
 
     onSelectItem = (selectedItems) => {
         this.setState({ selectedItems })
+        console.log(selectedItems)
     }
 
     handleCreateButtonClick = () => {
@@ -47,15 +67,34 @@ class CandidateManagement extends React.Component {
         this.setState({ isEditPanelOpen: true })
     }
 
+    handleDeleteButtonClick = () => {
+        debugger
+        const id = this.state.selectedItems[0]
+        axios
+            .delete(`http://localhost:5000/User/users/${id}`)
+            .then((response) => {
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+
     handleCancelButtonClick = () => {
         this.setState({ isCreatePanelOpen: false, isEditPanelOpen: false })
     }
 
-    handleSaveCreatePanel = () => {
-        this.props.setGlobalLoading(true)
-        setTimeout(() => {
-            this.props.setGlobalLoading(false), this.handleCancelButtonClick()
-        }, 3000)
+    handleSaveCreatePanel = async () => {
+        console.log(this.state.createdItem)
+        axios
+            .post(url, this.state.createdItem)
+            .then((response) => {
+                this.fetchData()
+                this.setState({ isCreatePanelOpen: false, isEditPanelOpen: false })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     }
 
     roleItems = [
@@ -67,30 +106,37 @@ class CandidateManagement extends React.Component {
     handleImageChange = () => {}
 
     onRoleChange = (value) => {
-        this.setState({ createdItem: { ...this.setState.createdItem, role: value } })
+        // this.setState({ createdItem: { ...this.setState.createdItem, role: value } })
+    }
+
+    handleChangeValue = (event) => {
+        const field = event.target.name
+        if (this.state.createdItem.hasOwnProperty(field)) {
+            this.state.createdItem[field] = event.target.value
+        }
     }
 
     onRenderPanelContent = () => {
         return (
             <div className='a-candidatemanagement-panel'>
-                <DefaultTextField label={'Họ và tên'} required />
-                <DefaultTextField label={'Email'} required />
-                <DefaultTextField label={'Password'} required />
+                <DefaultTextField label={'Họ và tên'} name={'userName'} required onChange={this.handleChangeValue} />
+                <DefaultTextField label={'Email'} name={'email'} required onChange={this.handleChangeValue} />
+                <DefaultTextField label={'password'} name={'password'} required onChange={this.handleChangeValue} />
                 <DefaultSelect label={'Vai trò'} required items={this.roleItems} onChange={this.onRoleChange} />
-                {this.state.createdItem.role == 'Thí sinh' && (
+                {/* {this.state.createdItem.role == 'Thí sinh' && (
                     <CommonImageUpload onChange={this.handleImageChange} label={'Dữ liệu khuôn mặt'} required />
-                )}
+                )} */}
             </div>
         )
     }
 
     columns = [
-        { field: 'id', headerName: 'Id', width: 70 },
+        { field: 'userId', headerName: 'Id', width: 70 },
         { field: 'userName', headerName: 'Họ và tên', width: 180 },
         {
             field: 'email',
             headerName: 'Email',
-            width: 200
+            width: 400
         },
         {
             field: 'password',
@@ -107,6 +153,7 @@ class CandidateManagement extends React.Component {
     ]
 
     render() {
+        // console.log(this.state.users)
         return (
             <div className='a-candidatemanagement'>
                 <div className='a-candidatemanagement-button'>
@@ -123,9 +170,16 @@ class CandidateManagement extends React.Component {
                         startIcon={<Delete />}
                         variant='text'
                         disabled={this.state.selectedItems.length == 0}
+                        onClick={this.handleDeleteButtonClick}
                     />
                 </div>
-                <CommonTable columns={this.columns} rows={this.rows} onSelected={this.onSelectItem} isCheckbox />
+                <CommonTable
+                    columns={this.columns}
+                    rows={this.state.students ?? []}
+                    getRowId={(row) => row.userId}
+                    onSelected={this.onSelectItem}
+                    isCheckbox
+                />
                 <DefaultPanel
                     isOpen={this.state.isCreatePanelOpen}
                     onCancelButtonClick={this.handleCancelButtonClick}
@@ -137,7 +191,7 @@ class CandidateManagement extends React.Component {
                     isOpen={this.state.isEditPanelOpen}
                     onCancelButtonClick={this.handleCancelButtonClick}
                     title={'Sửa thí sinh'}
-					onRenderPanelContent={this.onRenderPanelContent()}
+                    onRenderPanelContent={this.onRenderPanelContent()}
                 />
             </div>
         )

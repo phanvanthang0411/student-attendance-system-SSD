@@ -8,7 +8,7 @@ export default function DefaultTextField(props) {
             <div className='a-defaulttextfield-label'>
                 {props.label} {props.required && <div className='a-defaulttextfield-label-required'>*</div>}
             </div>
-            <OutlinedInput size='small' />
+            <OutlinedInput size='small' name={props.name} onChange={props.onChange} />
         </div>
     )
 }
