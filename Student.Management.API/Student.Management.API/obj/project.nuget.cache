@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "oca5RpX99ngPvgBky+MJ/5qHT60TNNFJST+6bNFKQz5y1kWr2PHpkGvjIBOUNzPsWQAPaf4AX4c/iNf4fK2bDg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kevin.phan\\Desktop\\DOAN\\student-attendance-system-SSD\\Student.Management.API\\Student.Management.API\\Student.Management.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kevin.phan\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
+    "C:\\Users\\kevin.phan\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\kevin.phan\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\kevin.phan\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\kevin.phan\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\kevin.phan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\kevin.phan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -106,7 +106,7 @@ class CandidateManagement extends React.Component {
     handleImageChange = () => {}
 
     onRoleChange = (value) => {
-        // this.setState({ createdItem: { ...this.setState.createdItem, role: value } })
+        this.setState({ createdItem: { ...this.setState.createdItem, role: value } })
     }
 
     handleChangeValue = (event) => {
@@ -123,9 +123,9 @@ class CandidateManagement extends React.Component {
                 <DefaultTextField label={'Email'} name={'email'} required onChange={this.handleChangeValue} />
                 <DefaultTextField label={'password'} name={'password'} required onChange={this.handleChangeValue} />
                 <DefaultSelect label={'Vai trò'} required items={this.roleItems} onChange={this.onRoleChange} />
-                {/* {this.state.createdItem.role == 'Thí sinh' && (
+                {this.state.createdItem.role == 'Thí sinh' && (
                     <CommonImageUpload onChange={this.handleImageChange} label={'Dữ liệu khuôn mặt'} required />
-                )} */}
+                )}
             </div>
         )
     }

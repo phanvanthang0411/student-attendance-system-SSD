@@ -1,28 +1,20 @@
-import * as React from 'react'
 import {
-    ThemeProvider,
-    createTheme,
-    CssBaseline,
-    Container,
-    Card,
-    Paper,
-    Grid,
-    Button,
-    Radio,
-    FormControlLabel,
-    RadioGroup,
-    FormControl,
-    FormLabel,
-    TextField,
     Box,
-    Typography,
-    CardMedia
+    Button,
+    FormControl,
+    FormControlLabel,
+    FormLabel,
+    Radio,
+    RadioGroup,
+    TextField,
+    createTheme
 } from '@mui/material'
-import { routerPath } from '../../base/routerPaths'
+import * as React from 'react'
 import { connect } from 'react-redux'
+import { routerPath } from '../../base/routerPaths'
 import { LoginAction } from '../../redux/action'
-import './index.scss'
 import Utils from '../../util'
+import './index.scss'
 
 const mapStateToProps = ({ login }) => {
     return {
@@ -34,6 +26,11 @@ const mapStateToProps = ({ login }) => {
 const mapDispatchToProps = {
     changRole: LoginAction.changRole,
     changeEmail: LoginAction.changeEmail
+}
+
+const TextButton = {
+    Login: 'Đăng nhập',
+    SignUp: 'Đăng ký'
 }
 
 class LoginPage extends React.Component {
@@ -69,101 +66,73 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <div className={'login-container'}>
-                <ThemeProvider theme={this.defaultTheme}>
-                    <Paper elevation={6}>
-                        <Card>
-                            <CardMedia component='img' alt='HUST' image='./src/assets/images/background_login_2.jpg' />
-                        </Card>
-                        <Container component='main' maxWidth='md'>
-                            <CssBaseline />
-                            <Grid item xs={12} sm={6}>
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    <Typography component='h1' variant='h5'>
-                                        Đăng nhập
-                                    </Typography>
-                                    <Box component='form' noValidate sx={{ mt: 1 }}>
-                                        <TextField
-                                            error={
-                                                this.state.isFocusEmail && !this.checkEmailValidate(this.props.email)
-                                            }
-                                            margin='normal'
-                                            required
-                                            fullWidth
-                                            id='email'
-                                            label='Email'
-                                            name='email'
-                                            autoComplete='email'
-                                            size='small'
-                                            value={this.props.email}
-                                            onChange={this.handleChangeEmail}
-                                            onFocus={() => this.setState({ isFocusEmail: true })}
-                                        />
-                                        <TextField
-                                            error={this.state.isForcusPassword && this.state.password == ''}
-                                            margin='normal'
-                                            required
-                                            fullWidth
-                                            name='password'
-                                            label='Mật khẩu'
-                                            type='password'
-                                            id='password'
-                                            autoComplete='current-password'
-                                            size='small'
-                                            onChange={this.handleChangePassword}
-                                            onFocus={() => this.setState({ isForcusPassword: true })}
-                                        />
-                                        <FormControl component='fieldset' sx={{ mt: 3, mb: 2 }}>
-                                            <FormLabel component='legend'>
-                                                {'Vui lòng chọn vai trò đăng nhập:'}
-                                            </FormLabel>
-                                            <RadioGroup
-                                                row
-                                                aria-label='role'
-                                                name='role'
-                                                value={this.props.role}
-                                                onChange={this.handleRoleChange}
-                                            >
-                                                <FormControlLabel
-                                                    value='candidate'
-                                                    control={<Radio />}
-                                                    label='Thí sinh'
-                                                />
-                                                <FormControlLabel
-                                                    value='supervisor'
-                                                    control={<Radio />}
-                                                    label='Giám thị'
-                                                />
-                                                <FormControlLabel value='admin' control={<Radio />} label='Quản lý' />
-                                            </RadioGroup>
-                                        </FormControl>
-                                        <Button
-                                            disabled={
-                                                !this.checkEmailValidate(this.props.email) ||
-                                                this.state.password == '' ||
-                                                this.props.role == ''
-                                            }
-                                            type='submit'
-                                            fullWidth
-                                            variant='contained'
-                                            sx={{ mt: 1, mb: 1, height: '40px', backgroundColor: '#0c5776' }}
-                                            onClick={this.handleSubmit}
-                                            href={routerPath.Home}
-                                        >
-                                            Đăng nhập
-                                        </Button>
-                                    </Box>
-                                </Box>
-                            </Grid>
-                        </Container>
-                    </Paper>
-                </ThemeProvider>
+            <div className={'home-container'}>
+                <div className='home-container-header'>
+                    <div id='btn-login' className='home-container-header-button login'>
+                        {TextButton.Login}
+                    </div>
+                    <div id='btn-signup' className='home-container-header-button sign'>
+                        {TextButton.SignUp}
+                    </div>
+                </div>
+                <div className='home-container-content'>
+                    <Box component='form' noValidate>
+                        <TextField
+                            error={this.state.isFocusEmail && !this.checkEmailValidate(this.props.email)}
+                            margin='normal'
+                            required
+                            fullWidth
+                            id='email'
+                            label='Email'
+                            name='email'
+                            autoComplete='email'
+                            size='small'
+                            variant='standard'
+                            value={this.props.email}
+                            onChange={this.handleChangeEmail}
+                            onFocus={() => this.setState({ isFocusEmail: true })}
+                        />
+                        <TextField
+                            error={this.state.isForcusPassword && this.state.password == ''}
+                            margin='normal'
+                            required
+                            fullWidth
+                            name='password'
+                            label='Mật khẩu'
+                            type='password'
+                            id='password'
+                            variant='standard'
+                            autoComplete='current-password'
+                            size='small'
+                            onChange={this.handleChangePassword}
+                            onFocus={() => this.setState({ isForcusPassword: true })}
+                        />
+                        <FormControl component='fieldset' sx={{ mt: 3, mb: 2 }}>
+                            <FormLabel component='legend' color='success'>{'Vui lòng chọn vai trò đăng nhập:'}</FormLabel>
+                            <RadioGroup
+                                row
+                                aria-label='role'
+                                name='role'
+                                value={this.props.role}
+                                onChange={this.handleRoleChange}
+                            >
+                                <FormControlLabel value='candidate' control={<Radio />} label='Thí sinh' />
+                                <FormControlLabel value='supervisor' control={<Radio />} label='Giám thị' />
+                                <FormControlLabel value='admin' control={<Radio />} label='Quản lý' />
+                            </RadioGroup>
+                        </FormControl>
+                        <Button
+                            type='submit'
+                            fullWidth
+                            variant='contained'
+                            sx={{ mt: 1, height: '50px', backgroundColor: '#0c5776' }}
+                            onClick={this.handleSubmit}
+                            href={routerPath.Home}
+                        >
+                            {TextButton.Login}
+                        </Button>
+                    </Box>
+                </div>
             </div>
         )
     }
